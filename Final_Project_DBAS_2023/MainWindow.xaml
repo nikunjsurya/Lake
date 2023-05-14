@@ -1,0 +1,218 @@
+﻿<Window x:Class="Final_Project_DBAS_2023.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Final_Project_DBAS_2023"
+        mc:Ignorable="d"
+        Title="LRCH System Menu" WindowStartupLocation="CenterScreen" Height="450" Width="800" MinHeight="450" MinWidth="800" ContentRendered="ContentLoaded_Event" Background="Gray">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="./LakeRidgePhoto.png" Opacity=".40"/>
+        </Grid.Background>
+        
+        <!-- First Column Controls -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.85*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="AddPatientButton" Background="LightBlue" Content="Add New Patient" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="AddPatient_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="AdmitPatientButton" Background="LightBlue" Content="Admit Patient" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="AdmitPatient_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="DisplayPatientButton" Background="LightBlue" Content="Display Patient" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="DisplayPatient_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="DischargePatientButton" Background="LightBlue" Content="Discharge Patient" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="DischargePatient_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="RoomUtilizationButton" Background="OrangeRed" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="RoomUtilization_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Room Utilization Dashboard"/>
+                </Button>
+            </Grid>            
+        </Grid>
+
+
+
+        <!-- Second Column Controls -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Lake Ridge Community Hospital" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="25" FontWeight="DemiBold" />
+            <Label Content="System Menu" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Center" FontSize="25" FontWeight="DemiBold"/>
+            <Label x:Name="MessageBox" Content="" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" FontSize="16" Grid.Row="1" FontWeight="DemiBold"/>
+        </Grid>
+
+
+        <!-- Third Column Controls -->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.85*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="AddPhysicianButton" Background="LightGreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16"  Click="AddPhysician_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1"  Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="Add New Physician"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="PhysicianPatientButton" Background="LightGreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="PhysicianPatient_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Physician Dashboard"/>
+                </Button>
+
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="RevenueAnalysisButton" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="DailyRevenue_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="View Daily Revenue Report"/> 
+                </Button>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="DailyRevenueButton" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="RevenueAnalysis_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="View Revenue Analysis"/>
+                </Button>
+            </Grid>
+            
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="ExitButton" Background="LightGray" Content="Exit Program" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" FontFamily="Inconsolata" FontSize="16" Click="ExitButton_Click" Style="{DynamicResource RoundedButtonStyle}" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+
+            <Image HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Source="LakeRidgeLogo.png" Stretch="Uniform"/>
+
+
+
+        </Grid>
+    </Grid>
+</Window>
